@@ -5,6 +5,7 @@ import 'package:beetech_app/components/daily_sale.dart';
 
 import 'package:beetech_app/components/row_for_categorie.dart';
 import 'package:beetech_app/utils/assets_manager.dart';
+import 'package:beetech_app/utils/my_drawer.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: const MyDrawer(),
       appBar: AppBar(
         /* leading: IconButton(
           onPressed: () {},
