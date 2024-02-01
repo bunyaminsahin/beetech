@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class DailySaleItem extends StatelessWidget {
+class DailySelingProductItem extends StatelessWidget {
   final String imagePath;
   final String itemName;
   final String discountForEachItem;
   void Function()? onPressed;
-  DailySaleItem({
+  DailySelingProductItem({
     super.key,
     required this.imagePath,
     required this.itemName,
@@ -16,11 +18,10 @@ class DailySaleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 150,
-          height: 150,
+          width: 140,
+          height: 140,
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
@@ -29,7 +30,7 @@ class DailySaleItem extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 16,
+          height: 8,
         ),
         Text(
           itemName,
@@ -42,9 +43,7 @@ class DailySaleItem extends StatelessWidget {
             height: 0.15,
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
+        const SizedBox(height: 8),
         Container(
           width: 78,
           height: 19,
@@ -55,7 +54,7 @@ class DailySaleItem extends StatelessWidget {
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(2)),
           ),
           child: Row(
-            mainAxisSize: MainAxisSize.min,
+            //mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -74,7 +73,7 @@ class DailySaleItem extends StatelessWidget {
           ),
         ),
         const SizedBox(
-          height: 16,
+          height: 8,
         ),
       ],
     );

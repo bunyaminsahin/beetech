@@ -1,9 +1,8 @@
 import 'package:beetech_app/components/banner_swiper.dart';
 import 'package:beetech_app/components/category_mark.dart';
-import 'package:beetech_app/components/count_down_timer.dart';
-import 'package:beetech_app/components/daily_sale.dart';
-
-import 'package:beetech_app/components/row_for_categorie.dart';
+import 'package:beetech_app/components/daily_seling_product_item.dart';
+import 'package:beetech_app/components/hot_selling_product_item.dart';
+import 'package:beetech_app/components/row_for_categories.dart';
 import 'package:beetech_app/utils/assets_manager.dart';
 import 'package:beetech_app/utils/my_drawer.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -11,7 +10,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-
 import 'package:flutter_timer_countdown/flutter_timer_countdown.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -21,7 +19,15 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-final List dailySaleItemList = [
+final List hotSellingProductItem = [
+  [
+    "assets/images/nikeshoes.png",
+    "Running Shoes",
+    "Upto 40% OFF",
+  ],
+];
+
+final List dailySelingProductItemList = [
   [
     "assets/images/nikeshoes.png",
     "Running Shoes",
@@ -48,6 +54,21 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      /*  bottomNavigationBar:
+          BottomNavigationBar(items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.card_travel),
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+        ),
+      ]), */
       drawer: const MyDrawer(),
       appBar: AppBar(
         /* leading: IconButton(
@@ -135,11 +156,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           const MySwiperForBanner(),
           const SizedBox(
-            height: 30,
+            height: 20,
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 540,
+            height: 90 + 2 * 195,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment(0.47, -0.88),
@@ -149,6 +170,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             child: Column(
               children: [
+                const SizedBox(height: 12),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
@@ -182,9 +204,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 24,
-                ),
+                const SizedBox(height: 10),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: Row(
@@ -229,48 +249,79 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SizedBox(
                   height: 16,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    DailySaleItem(
-                      imagePath: "assets/images/nikeshoes.png",
-                      itemName: "Running Shoes",
-                      discountForEachItem: "Upto 40% OFF",
-                    ),
-                    DailySaleItem(
-                      imagePath: "assets/images/sneakrsshoes.png",
-                      itemName: "Sneakers",
-                      discountForEachItem: "40-60% OFF",
-                    ),
-                  ],
+                SizedBox(
+                  height: 2 * 195,
+                  child: GridView.builder(
+                      //physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                      ),
+                      itemCount: dailySelingProductItemList.length,
+                      itemBuilder: (context, index) {
+                        return DailySelingProductItem(
+                            imagePath: dailySelingProductItemList[index][0],
+                            itemName: dailySelingProductItemList[index][1],
+                            discountForEachItem:
+                                dailySelingProductItemList[index][2]);
+                      }),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    DailySaleItem(
-                      imagePath: "assets/images/watch.png",
-                      itemName: "Wrist Watches",
-                      discountForEachItem: "Upto 40% OFF",
-                    ),
-                    DailySaleItem(
-                      imagePath: "assets/images/speaker.png",
-                      itemName: "Bluetooth Speakers",
-                      discountForEachItem: "40-60% OFF",
-                    ),
-                  ],
-                ),
-                /*  GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2),
-                    itemBuilder: (context, index) {
-                      return DailySaleItem(
-                          imagePath: dailySaleItemList[index][0],
-                          itemName: dailySaleItemList[index][1],
-                          discountForEachItem: dailySaleItemList[index][2]);
-                    }), */
               ],
+            ),
+          ),
+          const SizedBox(height: 16),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                const Text(
+                  'Hot Selling Footwear',
+                  style: TextStyle(
+                    color: Color(0xFF1F2937),
+                    fontSize: 14,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w600,
+                    height: 0.11,
+                    letterSpacing: 0.07,
+                  ),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {},
+                  child: const Text(
+                    'View All ->',
+                    textAlign: TextAlign.right,
+                    style: TextStyle(
+                      color: Color(0xFF6B7280),
+                      fontSize: 12,
+                      fontFamily: 'Inter',
+                      fontWeight: FontWeight.w400,
+                      height: 0.12,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: SizedBox(
+              height: 195,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 6,
+                  itemBuilder: ((context, index) {
+                    return const HotSellingProductItem(
+                      imagePath: "assets/images/adidas.png",
+                      itemName: "Adidas white sneakers for men",
+                      itemPrice: 150,
+                      itemOldPrice: 350,
+                      itemDiscount: 50,
+                      ratio: 4.4,
+                      ratingCount: 412,
+                    );
+                  })),
             ),
           ),
         ],

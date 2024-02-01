@@ -17,7 +17,7 @@ class _MyDrawerState extends State<MyDrawer> {
         children: [
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Color(0xFFEF4444),
+              color: Color(0xFFECFDF5),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
