@@ -51,6 +51,43 @@ class RowForCategories extends StatelessWidget {
                 imagePath: "assets/images/furniture.png",
                 colorValue: 0xFFEFF6FF,
               ),
+              MyCategoryMark(
+                categoryName: "Fashion",
+                imagePath: "assets/images/fashion.png",
+                colorValue: 0xFFECFDF5,
+              ),
+              SizedBox(
+                width: 28,
+              ),
+              MyCategoryMark(
+                categoryName: "Electronics",
+                imagePath: "assets/images/electronics.png",
+                colorValue: 0xFFFFF7ED,
+              ),
+              SizedBox(
+                width: 28,
+              ),
+              MyCategoryMark(
+                categoryName: "Appliances",
+                imagePath: "assets/images/appliances.png",
+                colorValue: 0xFFECFDF5,
+              ),
+              SizedBox(
+                width: 28,
+              ),
+              MyCategoryMark(
+                categoryName: "Beauty",
+                imagePath: "assets/images/beauty.png",
+                colorValue: 0xFFECFEFF,
+              ),
+              SizedBox(
+                width: 28,
+              ),
+              MyCategoryMark(
+                categoryName: "Furniture",
+                imagePath: "assets/images/furniture.png",
+                colorValue: 0xFFEFF6FF,
+              ),
             ],
           ),
         ),
