@@ -186,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           const BottomNavigationBarItem(
-            icon: Icon(Icons.grid_view_rounded),
+            icon: Icon(Icons.grid_view),
             label: 'Categories',
           ),
           const BottomNavigationBarItem(

@@ -1,3 +1,4 @@
+import 'package:beetech_app/auth/login_page.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatefulWidget {
@@ -34,21 +35,49 @@ class _MyDrawerState extends State<MyDrawer> {
             ),
           ),
           ListTile(
-            title: const Text('Home Page'),
+            leading: Image.asset(
+              "assets/images/home.png",
+              width: 24,
+              height: 24,
+            ),
+            title: const Text(
+              'Home Page',
+              style: TextStyle(fontSize: 12),
+            ),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('Categories'),
+            leading: const Icon(Icons.grid_view),
+            title: const Text(
+              'Categories',
+              style: TextStyle(fontSize: 12),
+            ),
             onTap: () {
               Navigator.pop(context);
             },
           ),
           ListTile(
-            title: const Text('My Card'),
+            leading: const Icon(Icons.access_time),
+            title: const Text(
+              'Orders',
+              style: TextStyle(fontSize: 12),
+            ),
             onTap: () {
               Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.account_circle_outlined),
+            title: const Text(
+              'Profile',
+              style: TextStyle(fontSize: 12),
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const LoginPage();
+              }));
             },
           ),
         ],

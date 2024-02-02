@@ -43,30 +43,36 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        selectedLabelStyle: const TextStyle(fontSize: 14),
+        unselectedLabelStyle: const TextStyle(fontSize: 14),
+        selectedItemColor: const Color(0x1ff1d4ed8),
+        unselectedItemColor: const Color(0x1ff6b7280),
+        selectedFontSize: 24,
+        unselectedFontSize: 24,
+        backgroundColor: Colors.white,
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Image.asset(
+              "assets/images/home.png",
+              width: 24,
+              height: 24,
+            ),
             label: 'Home',
-            backgroundColor: Colors.red,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
-            backgroundColor: Colors.green,
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.grid_view),
+            label: 'Categories',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
-            backgroundColor: Colors.purple,
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.access_time),
+            label: 'Orders',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
-            backgroundColor: Colors.pink,
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),
     );

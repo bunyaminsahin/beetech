@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget {
-  const SignupPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,8 +34,22 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
       ),
-      body: ElevatedButton(
-          onPressed: () {}, child: const Text("Signup with Google")),
+      body: Center(
+        child: Column(
+          children: [
+            const SizedBox(height: 150),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("Login with Google"),
+            ),
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("Login with Facebook"),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

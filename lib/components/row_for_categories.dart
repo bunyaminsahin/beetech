@@ -51,6 +51,9 @@ class RowForCategories extends StatelessWidget {
                 imagePath: "assets/images/furniture.png",
                 colorValue: 0xFFEFF6FF,
               ),
+              SizedBox(
+                width: 28,
+              ),
               MyCategoryMark(
                 categoryName: "Fashion",
                 imagePath: "assets/images/fashion.png",
